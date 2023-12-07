@@ -23,7 +23,6 @@ public class ApiCallExampleService {
     @Component
     public static class ResponseParserToDomainObject implements ExternalApiCaller.ResponseParser {
         public PublicApiObject parseContent (String apiResponse) throws Exception {
-            System.out.println("apiResponse: " + apiResponse);
             JSONObject jsonObject = new JSONObject(apiResponse);
             PublicApiObject object = new PublicApiObject();
             if (jsonObject.get("name") instanceof String) {

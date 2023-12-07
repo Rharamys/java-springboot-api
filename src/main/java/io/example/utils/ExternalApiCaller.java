@@ -49,7 +49,7 @@ public class ExternalApiCaller {
         int status = con.getResponseCode();
 
         if (status > 299) {
-            throw new Exception("Error: " + con.getResponseCode());
+            throw new Exception("Error: " + status);
         } else {
             BufferedReader br = new BufferedReader(new InputStreamReader((con.getInputStream())));
             StringBuilder sb = new StringBuilder();
