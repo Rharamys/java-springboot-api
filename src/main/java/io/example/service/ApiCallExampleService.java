@@ -22,7 +22,7 @@ public class ApiCallExampleService {
 
     @Component
     public static class ResponseParserToDomainObject implements ExternalApiCaller.ResponseParser {
-        public PublicApiObject parseContent (String apiResponse) {
+        public PublicApiObject parseContent (String apiResponse) throws Exception {
             System.out.println("apiResponse: " + apiResponse);
             JSONObject jsonObject = new JSONObject(apiResponse);
             PublicApiObject object = new PublicApiObject();
@@ -30,10 +30,10 @@ public class ApiCallExampleService {
                 object.name = jsonObject.getString("name");
             }
             if (jsonObject.get("age") instanceof Number) {
-                object.age = jsonObject.getNumber("age");
+                object.age = jsonObject.getInt("age");
             }
             if (jsonObject.get("count") instanceof Number) {
-                object.count = jsonObject.getNumber("count");
+                object.count = jsonObject.getInt("count");
             }
             return object;
         }

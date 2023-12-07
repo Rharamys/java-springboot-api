@@ -14,7 +14,7 @@ import java.util.Map;
 public class ExternalApiCaller {
 
     public static interface ResponseParser {
-        public Object parseContent (String body);
+        public Object parseContent (String body) throws Exception;
     }
 
     private static class ParameterStringBuilder {
